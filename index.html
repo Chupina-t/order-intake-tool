@@ -1,309 +1,354 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Прием заказа | Корпусная мебель</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Прием заказов | Корпусная мебель</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-            background: #f5f6f8;
-            color: #202124;
-        }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f5f7;
+    color: #202124;
+}
 
-        .header {
-            background: #ffffff;
-            border-bottom: 1px solid #e1e4e8;
-            padding: 18px 24px;
-        }
+header {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .header-inner {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+}
 
-        .logo {
-            font-size: 20px;
-            font-weight: 700;
-        }
+.header-title {
+    font-size: 20px;
+    color: #687080;
+}
 
-        .header-status {
-            font-size: 14px;
-            color: #6b7280;
-        }
+nav {
+    background: #fff;
+    padding: 0 5%;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    gap: 10px;
+}
 
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+nav button {
+    border: none;
+    background: transparent;
+    padding: 18px 24px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #687080;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+}
 
-        .intro {
-            margin-bottom: 28px;
-        }
+nav button.active {
+    color: #2563eb;
+    border-bottom-color: #2563eb;
+}
 
-        h1 {
-            font-size: 32px;
-            margin: 0 0 10px;
-        }
+.container {
+    max-width: 1250px;
+    margin: 45px auto;
+    padding: 0 25px;
+}
 
-        .subtitle {
-            color: #6b7280;
-            font-size: 16px;
-            line-height: 1.5;
-        }
+h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
 
-        .card {
-            background: #ffffff;
-            border-radius: 14px;
-            padding: 28px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-        }
+.subtitle {
+    font-size: 22px;
+    color: #687080;
+    margin-bottom: 40px;
+}
 
-        .section-title {
-            font-size: 21px;
-            font-weight: 700;
-            margin: 0 0 20px;
-        }
+.card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
 
-        .section-description {
-            color: #6b7280;
-            font-size: 14px;
-            margin-bottom: 22px;
-        }
+.section-title {
+    font-size: 27px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
 
-        .field {
-            margin-bottom: 18px;
-        }
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
 
-        label {
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 7px;
-        }
+.field {
+    display: flex;
+    flex-direction: column;
+}
 
-        .required {
-            color: #d93025;
-        }
+.field.full {
+    grid-column: 1 / -1;
+}
 
-        input,
-        select,
-        textarea {
-            width: 100%;
-            border: 1px solid #d5d9df;
-            border-radius: 8px;
-            padding: 12px 13px;
-            font-size: 15px;
-            font-family: inherit;
-            background: #ffffff;
-            outline: none;
-        }
+label {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 9px;
+}
 
-        input:focus,
-        select:focus,
-        textarea:focus {
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
-        }
+.required {
+    color: #d93025;
+}
 
-        textarea {
-            min-height: 110px;
-            resize: vertical;
-        }
+input,
+select,
+textarea {
+    width: 100%;
+    border: 1px solid #ccd2da;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 17px;
+    background: #fff;
+}
 
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-        }
+textarea {
+    min-height: 110px;
+    resize: vertical;
+}
 
-        .radio-group {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 8px;
-        }
+.radio-group {
+    display: flex;
+    gap: 30px;
+    margin-top: 8px;
+}
 
-        .radio-option {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            font-weight: 400;
-        }
+.radio-group label {
+    font-weight: 400;
+}
 
-        .radio-option input {
-            width: auto;
-        }
+.radio-group input {
+    width: auto;
+    margin-right: 8px;
+}
 
-        .file-note {
-            color: #6b7280;
-            font-size: 13px;
-            margin-top: 7px;
-        }
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 35px;
+}
 
-        .buttons {
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            margin-top: 25px;
-        }
+button.primary,
+button.secondary {
+    border: none;
+    border-radius: 12px;
+    padding: 17px 30px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
 
-        button {
-            border: none;
-            border-radius: 9px;
-            padding: 13px 22px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            font-family: inherit;
-        }
+button.primary {
+    background: #2563eb;
+    color: #fff;
+}
 
-        .btn-primary {
-            background: #2563eb;
-            color: white;
-        }
+button.secondary {
+    background: #eef0f3;
+    color: #30343b;
+}
 
-        .btn-primary:hover {
-            background: #1d4ed8;
-        }
+.success {
+    background: #ecfdf3;
+    border: 1px solid #9de3b6;
+    color: #16733b;
+    padding: 22px;
+    border-radius: 12px;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
 
-        .btn-secondary {
-            background: #eef0f3;
-            color: #30343b;
-        }
+.error {
+    background: #fff1f1;
+    border: 1px solid #f1aaaa;
+    color: #b42318;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
 
-        .btn-secondary:hover {
-            background: #e2e5e9;
-        }
+.check-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 18px;
+}
 
-        .error {
-            border-color: #d93025 !important;
-            background: #fff8f7;
-        }
+.check-ok {
+    color: #16803c;
+    font-weight: 700;
+}
 
-        .error-message {
-            color: #d93025;
-            font-size: 13px;
-            margin-top: 6px;
-        }
+.check-error {
+    color: #c62828;
+    font-weight: 700;
+}
 
-        .success-box {
-            background: #ecfdf3;
-            border: 1px solid #b7ebc6;
-            color: #166534;
-            border-radius: 10px;
-            padding: 16px;
-            margin-bottom: 20px;
-        }
+.order-number {
+    font-size: 46px;
+    font-weight: 700;
+    margin: 20px 0;
+}
 
-        .check-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+.status {
+    display: inline-block;
+    background: #e8efff;
+    color: #2457c5;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 700;
+}
 
-        .check-list li {
-            padding: 11px 0;
-            border-bottom: 1px solid #edf0f2;
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-        }
+.order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-        .check-ok {
-            color: #16803c;
-            font-weight: 600;
-        }
+.order-item {
+    background: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    cursor: pointer;
+}
 
-        .check-error {
-            color: #d93025;
-            font-weight: 600;
-        }
+.order-item:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
 
-        .order-number {
-            font-size: 28px;
-            font-weight: 700;
-            margin: 8px 0;
-        }
+.order-summary {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 1fr 1fr 1fr auto;
+    gap: 20px;
+    align-items: center;
+}
 
-        .status {
-            display: inline-block;
-            padding: 6px 10px;
-            background: #e8f0fe;
-            color: #1a56db;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-        }
+.order-id {
+    font-size: 20px;
+    font-weight: 700;
+}
 
-        .hidden {
-            display: none;
-        }
+.order-label {
+    font-size: 13px;
+    color: #7a8190;
+    margin-bottom: 5px;
+}
 
-        .footer-note {
-            text-align: center;
-            color: #8a919b;
-            font-size: 13px;
-            margin: 25px 0;
-        }
+.order-value {
+    font-size: 16px;
+    font-weight: 600;
+}
 
-        @media (max-width: 700px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
+.empty {
+    background: #fff;
+    border-radius: 20px;
+    padding: 60px;
+    text-align: center;
+    color: #687080;
+    font-size: 20px;
+}
 
-            .header-inner {
-                align-items: flex-start;
-                gap: 10px;
-                flex-direction: column;
-            }
+.detail-row {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
 
-            h1 {
-                font-size: 27px;
-            }
+.detail-label {
+    color: #687080;
+}
 
-            .card {
-                padding: 20px;
-            }
+.detail-value {
+    font-weight: 600;
+    word-break: break-word;
+}
 
-            .buttons {
-                flex-direction: column;
-            }
+.status-select {
+    max-width: 350px;
+}
 
-            button {
-                width: 100%;
-            }
-        }
-    </style>
+.hidden {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    color: #8a919e;
+    padding: 30px;
+}
+
+@media (max-width: 900px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .order-summary {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .detail-row {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<header class="header">
-    <div class="header-inner">
-        <div class="logo">Прием заказов</div>
-        <div class="header-status">Корпусная мебель</div>
-    </div>
+<header>
+    <div class="logo">Прием заказов</div>
+    <div class="header-title">Корпусная мебель</div>
 </header>
 
-<main class="container">
+<nav>
+    <button id="tabNew" class="active" onclick="showTab('new')">
+        Новый заказ
+    </button>
+    <button id="tabOrders" onclick="showTab('orders')">
+        Заказы
+    </button>
+</nav>
 
-    <div class="intro">
-        <h1>Новый заказ</h1>
-        <div class="subtitle">
-            Заполните данные по заказу. Перед передачей на расчет система проверит комплектность информации.
-        </div>
+<div class="container">
+
+<!-- НОВЫЙ ЗАКАЗ -->
+
+<div id="newTab">
+
+    <h1>Новый заказ</h1>
+    <div class="subtitle">
+        Заполните данные по заказу. Перед передачей на расчет система проверит комплектность информации.
     </div>
 
     <form id="orderForm">
@@ -311,26 +356,28 @@
         <div class="card">
             <div class="section-title">1. Дизайнер</div>
 
-            <div class="grid">
+            <div class="form-grid">
+
                 <div class="field">
                     <label>ФИО дизайнера <span class="required">*</span></label>
-                    <input type="text" id="designerName" required>
+                    <input id="designer_name">
                 </div>
 
                 <div class="field">
                     <label>Компания / студия</label>
-                    <input type="text" id="designerCompany">
+                    <input id="designer_company">
                 </div>
 
                 <div class="field">
                     <label>Телефон дизайнера <span class="required">*</span></label>
-                    <input type="tel" id="designerPhone" required>
+                    <input id="designer_phone">
                 </div>
 
                 <div class="field">
                     <label>Email дизайнера</label>
-                    <input type="email" id="designerEmail">
+                    <input id="designer_email">
                 </div>
+
             </div>
         </div>
 
@@ -338,31 +385,33 @@
         <div class="card">
             <div class="section-title">2. Клиент и объект</div>
 
-            <div class="grid">
+            <div class="form-grid">
+
                 <div class="field">
                     <label>ФИО клиента / название компании <span class="required">*</span></label>
-                    <input type="text" id="clientName" required>
+                    <input id="client_name">
                 </div>
 
                 <div class="field">
                     <label>Телефон клиента <span class="required">*</span></label>
-                    <input type="tel" id="clientPhone" required>
+                    <input id="client_phone">
                 </div>
 
                 <div class="field">
                     <label>Email клиента</label>
-                    <input type="email" id="clientEmail">
+                    <input id="client_email">
                 </div>
 
                 <div class="field">
                     <label>Город <span class="required">*</span></label>
-                    <input type="text" id="city" required>
+                    <input id="city">
                 </div>
-            </div>
 
-            <div class="field">
-                <label>Адрес объекта <span class="required">*</span></label>
-                <input type="text" id="address" required>
+                <div class="field full">
+                    <label>Адрес объекта <span class="required">*</span></label>
+                    <input id="object_address">
+                </div>
+
             </div>
         </div>
 
@@ -370,44 +419,42 @@
         <div class="card">
             <div class="section-title">3. Заказ</div>
 
-            <div class="grid">
+            <div class="form-grid">
+
                 <div class="field">
                     <label>Тип мебели <span class="required">*</span></label>
-                    <select id="furnitureType" required>
-                        <option value="">Выберите вариант</option>
+                    <select id="furniture_type">
+                        <option value="">Выберите</option>
                         <option>Кухня</option>
-                        <option>Шкаф</option>
                         <option>Гардеробная</option>
+                        <option>Шкаф</option>
                         <option>Прихожая</option>
-                        <option>Мебель для гостиной</option>
-                        <option>Мебель для ванной</option>
+                        <option>Гостиная</option>
+                        <option>Ванная</option>
                         <option>Другая корпусная мебель</option>
                     </select>
                 </div>
 
                 <div class="field">
                     <label>Количество изделий <span class="required">*</span></label>
-                    <input type="number" id="quantity" min="1" required>
+                    <input id="quantity" type="number" min="1">
                 </div>
-            </div>
 
-            <div class="field">
-                <label>Описание заказа <span class="required">*</span></label>
-                <textarea id="orderDescription"
-                    placeholder="Опишите состав заказа и основные пожелания клиента"
-                    required></textarea>
-            </div>
+                <div class="field full">
+                    <label>Описание заказа <span class="required">*</span></label>
+                    <textarea id="order_description"></textarea>
+                </div>
 
-            <div class="grid">
                 <div class="field">
-                    <label>Желаемый срок изготовления</label>
-                    <input type="date" id="productionDate">
+                    <label>Желаемая дата производства</label>
+                    <input id="production_date" type="date">
                 </div>
 
                 <div class="field">
                     <label>Желаемая дата монтажа</label>
-                    <input type="date" id="installationDate">
+                    <input id="installation_date" type="date">
                 </div>
+
             </div>
         </div>
 
@@ -415,17 +462,18 @@
         <div class="card">
             <div class="section-title">4. Проект</div>
 
-            <div class="field">
-                <label>Ссылка на дизайн-проект <span class="required">*</span></label>
-                <input type="url" id="projectLink"
-                    placeholder="https://..."
-                    required>
-            </div>
+            <div class="form-grid">
 
-            <div class="field">
-                <label>Дополнительные ссылки / документы</label>
-                <textarea id="projectFiles"
-                    placeholder="Ссылки на чертежи, спецификации и другие документы"></textarea>
+                <div class="field full">
+                    <label>Ссылка на дизайн-проект <span class="required">*</span></label>
+                    <input id="project_link" placeholder="Ссылка на проект">
+                </div>
+
+                <div class="field full">
+                    <label>Дополнительные материалы / документы</label>
+                    <textarea id="project_files"></textarea>
+                </div>
+
             </div>
         </div>
 
@@ -433,35 +481,36 @@
         <div class="card">
             <div class="section-title">5. Замер</div>
 
-            <div class="field">
-                <label>Замер выполнен? <span class="required">*</span></label>
+            <div class="form-grid">
 
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="measurementStatus" value="Да">
-                        Да
-                    </label>
+                <div class="field full">
+                    <label>Замер выполнен <span class="required">*</span></label>
 
-                    <label class="radio-option">
-                        <input type="radio" name="measurementStatus" value="Нет">
-                        Нет
-                    </label>
+                    <div class="radio-group">
+
+                        <label>
+                            <input type="radio" name="measurement_status" value="Да">
+                            Да
+                        </label>
+
+                        <label>
+                            <input type="radio" name="measurement_status" value="Нет">
+                            Нет
+                        </label>
+
+                    </div>
                 </div>
-            </div>
 
-            <div class="field">
-                <label>Ссылка на замер</label>
-                <input type="url" id="measurementLink"
-                    placeholder="https://...">
-            </div>
-
-            <div class="field">
-                <label>Ссылка на фото замера</label>
-                <input type="url" id="measurementPhotos"
-                    placeholder="https://...">
-                <div class="file-note">
-                    Для MVP используем ссылку на папку с фотографиями замера.
+                <div class="field">
+                    <label>Ссылка на замер</label>
+                    <input id="measurement_link">
                 </div>
+
+                <div class="field">
+                    <label>Фото замера</label>
+                    <input id="measurement_photos">
+                </div>
+
             </div>
         </div>
 
@@ -470,10 +519,8 @@
             <div class="section-title">6. Материалы и комплектация</div>
 
             <div class="field">
-                <label>Описание материалов и комплектации <span class="required">*</span></label>
-                <textarea id="materials"
-                    placeholder="Например: корпус ЛДСП Egger, фасады МДФ эмаль, фурнитура Blum, столешница кварц, профиль Gola, подсветка..."
-                    required></textarea>
+                <label>Материалы и комплектация <span class="required">*</span></label>
+                <textarea id="materials_description"></textarea>
             </div>
         </div>
 
@@ -481,210 +528,377 @@
         <div class="card">
             <div class="section-title">7. Стоимость</div>
 
-            <div class="grid">
+            <div class="form-grid">
+
                 <div class="field">
-                    <label>Ориентировочная стоимость заказа</label>
-                    <input type="number" id="orderAmount" min="0"
-                        placeholder="₽">
+                    <label>Предварительная сумма заказа</label>
+                    <input id="order_amount" type="number">
                 </div>
 
                 <div class="field">
-                    <label>Стоимость согласована с клиентом?</label>
-
-                    <select id="priceAgreed">
-                        <option value="">Выберите вариант</option>
+                    <label>Цена согласована</label>
+                    <select id="price_agreed">
+                        <option value="">Выберите</option>
                         <option>Да</option>
                         <option>Нет</option>
+                        <option>На согласовании</option>
                     </select>
                 </div>
-            </div>
 
-            <div class="field">
-                <label>Комментарий по стоимости</label>
-                <textarea id="priceComment"></textarea>
+                <div class="field full">
+                    <label>Комментарий по цене</label>
+                    <textarea id="price_comment"></textarea>
+                </div>
+
             </div>
         </div>
 
 
         <div class="buttons">
-            <button type="button" class="btn-secondary" onclick="clearForm()">
-                Очистить
+            <button type="button" class="secondary" onclick="clearForm()">
+                Очистить форму
             </button>
 
-            <button type="button" class="btn-primary" onclick="checkOrder()">
+            <button type="button" class="primary" onclick="checkOrder()">
                 Проверить заказ
             </button>
         </div>
 
     </form>
 
+</div>
 
-    <div id="checkResult" class="card hidden">
-        <div class="section-title">Проверка заказа</div>
+
+<!-- ЗАКАЗЫ -->
+
+<div id="ordersTab" class="hidden">
+
+    <h1>Заказы</h1>
+
+    <div class="subtitle">
+        Все заказы, переданные на расчет.
+    </div>
+
+    <div id="ordersList"></div>
+
+</div>
+
+
+<!-- ПРОВЕРКА -->
+
+<div id="checkTab" class="hidden">
+
+    <div class="card">
+
+        <h1>Проверка заказа</h1>
 
         <div id="checkMessage"></div>
 
-        <ul class="check-list" id="checkList"></ul>
+        <div id="checkRows"></div>
 
         <div class="buttons">
-            <button class="btn-secondary" onclick="backToForm()">
+
+            <button class="secondary" onclick="backToForm()">
                 Вернуться к заполнению
             </button>
 
-            <button id="submitOrderButton"
-                    class="btn-primary hidden"
-                    onclick="submitOrder()">
+            <button id="sendButton" class="primary" onclick="submitOrder()">
                 Передать на расчет
             </button>
+
         </div>
+
     </div>
 
+</div>
 
-    <div id="successResult" class="card hidden">
 
-        <div class="success-box">
+<!-- РЕЗУЛЬТАТ -->
+
+<div id="resultTab" class="hidden">
+
+    <div class="card">
+
+        <div class="success">
             Заказ успешно принят и передан на расчет.
         </div>
 
-        <div class="section-title">Заказ создан</div>
+        <h2>Заказ создан</h2>
 
-        <div class="order-number" id="orderNumber"></div>
+        <div id="resultOrderNumber" class="order-number"></div>
 
-        <div class="status">Передан на расчет</div>
+        <div id="resultStatus" class="status"></div>
 
-        <div style="margin-top: 22px; color: #5f6368;">
-            Данные заказа сохранены в браузере.
-        </div>
+        <p style="font-size:20px;color:#687080;margin-top:30px;">
+            Заказ сохранен в списке заказов.
+        </p>
 
         <div class="buttons">
-            <button class="btn-secondary" onclick="createNewOrder()">
+
+            <button class="secondary" onclick="showTab('orders')">
+                Перейти к заказам
+            </button>
+
+            <button class="primary" onclick="createNewOrder()">
                 Создать новый заказ
             </button>
+
         </div>
 
     </div>
 
-    <div class="footer-note">
-        MVP инструмента приема заказов. Структура данных подготовлена с учетом дальнейшей интеграции с CRM.
+</div>
+
+
+<!-- КАРТОЧКА ЗАКАЗА -->
+
+<div id="detailTab" class="hidden">
+
+    <div class="card">
+
+        <button class="secondary" onclick="showTab('orders')">
+            Назад к заказам
+        </button>
+
+        <h1 id="detailNumber" style="margin-top:30px;"></h1>
+
+        <div style="margin:20px 0;">
+            <label>Статус заказа</label>
+
+            <select id="detailStatus"
+                    class="status-select"
+                    onchange="changeStatus()">
+
+                <option>Новый</option>
+                <option>Проверка данных</option>
+                <option>На расчете</option>
+                <option>Расчет готов</option>
+                <option>Согласование с клиентом</option>
+                <option>Передан в производство</option>
+                <option>Производство</option>
+                <option>Монтаж</option>
+                <option>Завершен</option>
+
+            </select>
+        </div>
+
+        <div id="detailContent"></div>
+
     </div>
 
-</main>
+</div>
+
+</div>
+
+<footer>
+    MVP инструмента приема заказов. Структура данных подготовлена с учетом дальнейшей интеграции с CRM.
+</footer>
 
 
 <script>
+
+let currentOrder = null;
+let currentOrderIndex = null;
+
+
+/* ---------- НАВИГАЦИЯ ---------- */
+
+function hideAllTabs() {
+    document.getElementById("newTab").classList.add("hidden");
+    document.getElementById("ordersTab").classList.add("hidden");
+    document.getElementById("checkTab").classList.add("hidden");
+    document.getElementById("resultTab").classList.add("hidden");
+    document.getElementById("detailTab").classList.add("hidden");
+
+    document.getElementById("tabNew").classList.remove("active");
+    document.getElementById("tabOrders").classList.remove("active");
+}
+
+function showTab(tab) {
+
+    hideAllTabs();
+
+    if (tab === "new") {
+        document.getElementById("newTab").classList.remove("hidden");
+        document.getElementById("tabNew").classList.add("active");
+    }
+
+    if (tab === "orders") {
+        document.getElementById("ordersTab").classList.remove("hidden");
+        document.getElementById("tabOrders").classList.add("active");
+        renderOrders();
+    }
+}
+
+
+/* ---------- СБОР ДАННЫХ ---------- */
 
 function getValue(id) {
     return document.getElementById(id).value.trim();
 }
 
+function getMeasurementStatus() {
+
+    const selected = document.querySelector(
+        'input[name="measurement_status"]:checked'
+    );
+
+    return selected ? selected.value : "";
+}
+
+function collectFormData() {
+
+    return {
+        designer_name: getValue("designer_name"),
+        designer_company: getValue("designer_company"),
+        designer_phone: getValue("designer_phone"),
+        designer_email: getValue("designer_email"),
+
+        client_name: getValue("client_name"),
+        client_phone: getValue("client_phone"),
+        client_email: getValue("client_email"),
+        city: getValue("city"),
+        object_address: getValue("object_address"),
+
+        furniture_type: getValue("furniture_type"),
+        quantity: getValue("quantity"),
+        order_description: getValue("order_description"),
+        production_date: getValue("production_date"),
+        installation_date: getValue("installation_date"),
+
+        project_link: getValue("project_link"),
+        project_files: getValue("project_files"),
+
+        measurement_status: getMeasurementStatus(),
+        measurement_link: getValue("measurement_link"),
+        measurement_photos: getValue("measurement_photos"),
+
+        materials_description: getValue("materials_description"),
+
+        order_amount: getValue("order_amount"),
+        price_agreed: getValue("price_agreed"),
+        price_comment: getValue("price_comment")
+    };
+}
+
+
+/* ---------- ПРОВЕРКА ---------- */
 
 function checkOrder() {
 
-    const result = document.getElementById("checkResult");
-    const list = document.getElementById("checkList");
-    const message = document.getElementById("checkMessage");
-    const submitButton = document.getElementById("submitOrderButton");
+    currentOrder = collectFormData();
 
-    list.innerHTML = "";
-
-    const checks = [
-        {
-            name: "ФИО дизайнера",
-            valid: getValue("designerName") !== ""
-        },
-        {
-            name: "Телефон дизайнера",
-            valid: getValue("designerPhone") !== ""
-        },
-        {
-            name: "ФИО клиента",
-            valid: getValue("clientName") !== ""
-        },
-        {
-            name: "Телефон клиента",
-            valid: getValue("clientPhone") !== ""
-        },
-        {
-            name: "Город",
-            valid: getValue("city") !== ""
-        },
-        {
-            name: "Адрес объекта",
-            valid: getValue("address") !== ""
-        },
-        {
-            name: "Тип мебели",
-            valid: getValue("furnitureType") !== ""
-        },
-        {
-            name: "Количество изделий",
-            valid: getValue("quantity") !== ""
-        },
-        {
-            name: "Описание заказа",
-            valid: getValue("orderDescription") !== ""
-        },
-        {
-            name: "Ссылка на дизайн-проект",
-            valid: getValue("projectLink") !== ""
-        },
-        {
-            name: "Статус замера",
-            valid: document.querySelector('input[name="measurementStatus"]:checked') !== null
-        },
-        {
-            name: "Материалы и комплектация",
-            valid: getValue("materials") !== ""
-        }
+    const required = [
+        ["designer_name", "ФИО дизайнера"],
+        ["designer_phone", "Телефон дизайнера"],
+        ["client_name", "ФИО клиента"],
+        ["client_phone", "Телефон клиента"],
+        ["city", "Город"],
+        ["object_address", "Адрес объекта"],
+        ["furniture_type", "Тип мебели"],
+        ["quantity", "Количество изделий"],
+        ["order_description", "Описание заказа"],
+        ["project_link", "Ссылка на дизайн-проект"],
+        ["measurement_status", "Статус замера"],
+        ["materials_description", "Материалы и комплектация"]
     ];
 
-    let allValid = true;
+    let valid = true;
 
-    checks.forEach(check => {
+    let rows = "";
 
-        const li = document.createElement("li");
+    required.forEach(item => {
 
-        const name = document.createElement("span");
-        name.textContent = check.name;
+        const value = currentOrder[item[0]];
 
-        const status = document.createElement("span");
+        if (value) {
 
-        if (check.valid) {
-            status.textContent = "Заполнено";
-            status.className = "check-ok";
+            rows += `
+                <div class="check-row">
+                    <span>${item[1]}</span>
+                    <span class="check-ok">Заполнено</span>
+                </div>
+            `;
+
         } else {
-            status.textContent = "Не заполнено";
-            status.className = "check-error";
-            allValid = false;
+
+            valid = false;
+
+            rows += `
+                <div class="check-row">
+                    <span>${item[1]}</span>
+                    <span class="check-error">Не заполнено</span>
+                </div>
+            `;
+
         }
 
-        li.appendChild(name);
-        li.appendChild(status);
-
-        list.appendChild(li);
     });
 
-    if (allValid) {
-        message.innerHTML =
-            '<div class="success-box">Все обязательные данные заполнены. Заказ можно передать на расчет.</div>';
 
-        submitButton.classList.remove("hidden");
+    if (currentOrder.measurement_status === "Да") {
+
+        if (!currentOrder.measurement_link) {
+
+            valid = false;
+
+            rows += `
+                <div class="check-row">
+                    <span>Ссылка на замер</span>
+                    <span class="check-error">Не заполнено</span>
+                </div>
+            `;
+
+        }
+
+        if (!currentOrder.measurement_photos) {
+
+            valid = false;
+
+            rows += `
+                <div class="check-row">
+                    <span>Фото замера</span>
+                    <span class="check-error">Не заполнено</span>
+                </div>
+            `;
+
+        }
+
+    }
+
+
+    document.getElementById("checkRows").innerHTML = rows;
+
+
+    if (valid) {
+
+        document.getElementById("checkMessage").innerHTML = `
+            <div class="success">
+                Все обязательные данные заполнены. Заказ можно передать на расчет.
+            </div>
+        `;
+
+        document.getElementById("sendButton").style.display = "block";
 
     } else {
 
-        message.innerHTML =
-            '<div class="error-message" style="margin-bottom:16px;">Заказ нельзя передать на расчет. Заполните обязательные поля.</div>';
+        document.getElementById("checkMessage").innerHTML = `
+            <div class="error">
+                Заказ нельзя передать на расчет. Заполните обязательные поля.
+            </div>
+        `;
 
-        submitButton.classList.add("hidden");
+        document.getElementById("sendButton").style.display = "none";
+
     }
 
-    result.classList.remove("hidden");
 
-    result.scrollIntoView({
-        behavior: "smooth"
-    });
+    document.getElementById("newTab").classList.add("hidden");
+    document.getElementById("checkTab").classList.remove("hidden");
 }
 
+
+/* ---------- СОЗДАНИЕ ЗАКАЗА ---------- */
 
 function submitOrder() {
 
@@ -692,71 +906,17 @@ function submitOrder() {
         localStorage.getItem("orders") || "[]"
     );
 
-    const number = orders.length + 1;
-
     const year = new Date().getFullYear();
 
-    const orderId =
-        "ORD-" +
-        year +
-        "-" +
-        String(number).padStart(4, "0");
+    const number = String(orders.length + 1).padStart(4, "0");
 
-    const measurement =
-        document.querySelector('input[name="measurementStatus"]:checked');
+    const orderNumber = `ORD-${year}-${number}`;
 
     const order = {
-
-        order_id: orderId,
-
-        designer_name: getValue("designerName"),
-        designer_company: getValue("designerCompany"),
-        designer_phone: getValue("designerPhone"),
-        designer_email: getValue("designerEmail"),
-
-        client_name: getValue("clientName"),
-        client_phone: getValue("clientPhone"),
-        client_email: getValue("clientEmail"),
-
-        city: getValue("city"),
-        object_address: getValue("address"),
-
-        furniture_type: getValue("furnitureType"),
-        quantity: getValue("quantity"),
-        order_description: getValue("orderDescription"),
-
-        production_date: getValue("productionDate"),
-        installation_date: getValue("installationDate"),
-
-        project_link: getValue("projectLink"),
-        project_files: getValue("projectFiles"),
-
-        measurement_status:
-            measurement ? measurement.value : "",
-
-        measurement_link:
-            getValue("measurementLink"),
-
-        measurement_photos:
-            getValue("measurementPhotos"),
-
-        materials:
-            getValue("materials"),
-
-        order_amount:
-            getValue("orderAmount"),
-
-        price_agreed:
-            getValue("priceAgreed"),
-
-        price_comment:
-            getValue("priceComment"),
-
-        status:
-            "Передан на расчет",
-
-        created_at:
-            new Date().toISOString()
+        ...currentOrder,
+        id: orderNumber,
+        created_at: new Date().toLocaleString("ru-RU"),
+        status: "На расчете"
     };
 
     orders.push(order);
@@ -766,54 +926,238 @@ function submitOrder() {
         JSON.stringify(orders)
     );
 
-    document.getElementById("orderForm").classList.add("hidden");
-    document.getElementById("checkResult").classList.add("hidden");
-    document.getElementById("successResult").classList.remove("hidden");
+    document.getElementById("checkTab").classList.add("hidden");
+    document.getElementById("resultTab").classList.remove("hidden");
 
-    document.getElementById("orderNumber").textContent =
-        orderId;
+    document.getElementById("resultOrderNumber").textContent =
+        orderNumber;
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    document.getElementById("resultStatus").textContent =
+        order.status;
 }
 
+
+/* ---------- СПИСОК ЗАКАЗОВ ---------- */
+
+function renderOrders() {
+
+    const orders = JSON.parse(
+        localStorage.getItem("orders") || "[]"
+    );
+
+    const container = document.getElementById("ordersList");
+
+    if (orders.length === 0) {
+
+        container.innerHTML = `
+            <div class="empty">
+                Пока нет заказов.
+                <br><br>
+                Создайте первый заказ во вкладке «Новый заказ».
+            </div>
+        `;
+
+        return;
+    }
+
+
+    container.innerHTML = `
+        <div class="order-list">
+            ${orders.map((order, index) => `
+
+                <div class="order-item"
+                     onclick="openOrder(${index})">
+
+                    <div class="order-summary">
+
+                        <div>
+                            <div class="order-label">Номер</div>
+                            <div class="order-id">
+                                ${order.id}
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="order-label">Дата</div>
+                            <div class="order-value">
+                                ${order.created_at}
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="order-label">Дизайнер</div>
+                            <div class="order-value">
+                                ${order.designer_name}
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="order-label">Клиент</div>
+                            <div class="order-value">
+                                ${order.client_name}
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="order-label">Тип мебели</div>
+                            <div class="order-value">
+                                ${order.furniture_type}
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="status">
+                                ${order.status}
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `).join("")}
+        </div>
+    `;
+}
+
+
+/* ---------- КАРТОЧКА ЗАКАЗА ---------- */
+
+function openOrder(index) {
+
+    const orders = JSON.parse(
+        localStorage.getItem("orders") || "[]"
+    );
+
+    currentOrderIndex = index;
+    currentOrder = orders[index];
+
+    hideAllTabs();
+
+    document.getElementById("detailTab").classList.remove("hidden");
+
+    document.getElementById("detailNumber").textContent =
+        currentOrder.id;
+
+    document.getElementById("detailStatus").value =
+        currentOrder.status;
+
+
+    const fields = [
+
+        ["Дата создания", currentOrder.created_at],
+
+        ["ФИО дизайнера", currentOrder.designer_name],
+        ["Компания / студия", currentOrder.designer_company],
+        ["Телефон дизайнера", currentOrder.designer_phone],
+        ["Email дизайнера", currentOrder.designer_email],
+
+        ["ФИО клиента", currentOrder.client_name],
+        ["Телефон клиента", currentOrder.client_phone],
+        ["Email клиента", currentOrder.client_email],
+        ["Город", currentOrder.city],
+        ["Адрес объекта", currentOrder.object_address],
+
+        ["Тип мебели", currentOrder.furniture_type],
+        ["Количество изделий", currentOrder.quantity],
+        ["Описание заказа", currentOrder.order_description],
+        ["Желаемая дата производства", currentOrder.production_date],
+        ["Желаемая дата монтажа", currentOrder.installation_date],
+
+        ["Ссылка на дизайн-проект", currentOrder.project_link],
+        ["Дополнительные материалы", currentOrder.project_files],
+
+        ["Статус замера", currentOrder.measurement_status],
+        ["Ссылка на замер", currentOrder.measurement_link],
+        ["Фото замера", currentOrder.measurement_photos],
+
+        ["Материалы и комплектация", currentOrder.materials_description],
+
+        ["Предварительная сумма", currentOrder.order_amount],
+        ["Цена согласована", currentOrder.price_agreed],
+        ["Комментарий по цене", currentOrder.price_comment]
+
+    ];
+
+
+    document.getElementById("detailContent").innerHTML = `
+
+        <div class="card" style="box-shadow:none;padding:0;">
+
+            ${fields.map(field => `
+
+                <div class="detail-row">
+
+                    <div class="detail-label">
+                        ${field[0]}
+                    </div>
+
+                    <div class="detail-value">
+                        ${field[1] || "Не указано"}
+                    </div>
+
+                </div>
+
+            `).join("")}
+
+        </div>
+    `;
+}
+
+
+/* ---------- СМЕНА СТАТУСА ---------- */
+
+function changeStatus() {
+
+    const orders = JSON.parse(
+        localStorage.getItem("orders") || "[]"
+    );
+
+    orders[currentOrderIndex].status =
+        document.getElementById("detailStatus").value;
+
+    localStorage.setItem(
+        "orders",
+        JSON.stringify(orders)
+    );
+
+    currentOrder = orders[currentOrderIndex];
+}
+
+
+/* ---------- ВОЗВРАТ ---------- */
 
 function backToForm() {
 
-    document.getElementById("checkResult")
-        .classList.add("hidden");
-
-    document.getElementById("orderForm")
-        .classList.remove("hidden");
+    document.getElementById("checkTab").classList.add("hidden");
+    document.getElementById("newTab").classList.remove("hidden");
 }
 
+
+/* ---------- НОВЫЙ ЗАКАЗ ---------- */
 
 function createNewOrder() {
 
-    document.getElementById("successResult")
-        .classList.add("hidden");
+    document.getElementById("orderForm").reset();
 
-    document.getElementById("orderForm")
-        .classList.remove("hidden");
-
-    document.getElementById("orderForm")
-        .reset();
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    showTab("new");
 }
 
+
+/* ---------- ОЧИСТКА ---------- */
 
 function clearForm() {
 
-    if (confirm("Очистить все заполненные данные?")) {
+    if (confirm("Очистить форму?")) {
         document.getElementById("orderForm").reset();
     }
+
 }
+
+
+/* ---------- СТАРТ ---------- */
+
+showTab("new");
 
 </script>
 
